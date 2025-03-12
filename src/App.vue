@@ -1,24 +1,13 @@
 <template>
-  <h1>Message: {{ message }}</h1>
-  <div style="background-color: orange; padding-left: 10px">
-    <ComponentA></ComponentA>
-  </div>
+  <AlertBox>Invalid username or password. Please try again.</AlertBox>
+  <AlertBox></AlertBox>
+  <AlertBox>
+    <h1>The request timed out. Please refresh the page and try again.</h1>
+  </AlertBox>
 </template>
 
 <script setup>
-import { ref, provide, readonly } from 'vue'
-import ComponentA from './ComponentA.vue'
-
-let message = ref('Hello, Provide/inject!')
-
-function updateMessage() {
-  message.value = 'Hello, Provide/inject! Updated.'
-}
-
-provide('msg', { message, updateMessage })
-
-let count = ref(0)
-provide('read-only-count', readonly(count))
+import AlertBox from './AlertBox.vue'
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
